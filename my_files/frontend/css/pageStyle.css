@@ -1,0 +1,39 @@
+
+
+html *
+{
+   font-size: 1em !important;
+   color: #000 !important;
+   font-family: Corbel !important;
+}
+
+body {
+  background-image: url("./img/sea2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+
+}
+
+.logo {	
+  border: 1.5px solid gray;
+  margin: 2px;
+  border: 2px solid gray;
+  padding: 10px;
+}
+
+.notRegistered {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0;
+}
+
+.hiddenimg {
+  display: none;
+}
+
+.hiddentxt {
+  font-weight: bold;
+  color: #F00;
+  z-index:99;
+}

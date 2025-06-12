@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Manage Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script src="admin_Logout.js"></script>
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="./admin_Dashboard.html">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success message EVENT ADD-->
+    <div id="success-message" class="alert alert-success mt-3" role="alert" style="display: none;">
+        Event Added successfully.
+    </div>
+
+    <!-- Success message EVENT DELETE-->
+    <div id="success-delete-message" class="alert alert-success mt-3" role="alert" style="display: none;">
+        Event Deleted successfully.
+    </div>
+
+    <!-- Success message EVENT UPDATE-->
+    <div id="success-update-message" class="alert alert-success mt-3" role="alert" style="display: none;">
+        Event Updated successfully.
+    </div>
+
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Form to add a new event -->
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2>Add New Event</h2>
+                    </div>
+                    <div class="card-body">
+                        <form onsubmit="event.preventDefault(); addEvent()">
+                            <div class="mb-3">
+                                <label for="time" class="form-label">Start Date - End Date:</label>
+                                <input type="text" class="form-control" id="date" name="date">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo1" class="form-label">Event Sample Photo:</label>
+                                <input type="text" class="form-control" id="photo1" name="photo1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo2" class="form-label">Event Map Photo:</label>
+                                <input type="text" class="form-control" id="photo2" name="photo2">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title:</label>
+                                <input type="text" class="form-control" id="title" name="title">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="info" class="form-label">Info:</label>
+                                <textarea class="form-control" id="info" name="info"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Add Event</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form to modify an existing event -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2>Modify Event</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="modifyEventForm">
+                            <div class="mb-3">
+                                <label for="event" class="form-label">Select Event:</label>
+                                <select id="event" name="event" class="form-select">
+                                    <option value="" selected>Select here</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="time" class="form-label">Start Date - End Date:</label>
+                                <input type="text" class="form-control" id="date" name="date">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo1" class="form-label">Event Sample Photo:</label>
+                                <input type="text" class="form-control" id="photo1" name="photo1">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo2" class="form-label">Event Map Photo:</label>
+                                <input type="text" class="form-control" id="photo2" name="photo2">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title:</label>
+                                <input type="text" class="form-control" id="title" name="title">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="info" class="form-label">Info:</label>
+                                <textarea class="form-control" id="info" name="info"></textarea>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="disableEvent" name="disableEvent">
+                                <label class="form-check-label" for="disableEvent">Disable Event</label>
+                            </div>
+
+                            <!-- Event Listener for this button in modifyEvent.js -->
+                            <button id="modifyEventButton" type="submit" class="btn btn-primary">Modify Event</button>
+
+                            <!-- Event Listener for this button in deleteEvent.js -->
+                            <button id="deleteEventButton" type="button" class="btn btn-danger">Delete Event</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../nodejs/addEvent.js"></script>
+    <script src="../nodejs/deleteEvent.js"></script>
+    <script src="../frontend/loadEvents.js"></script>
+    <script src="./modifyEvent.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

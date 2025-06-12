@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Monaco travel Guide</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/monaco_guideStyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    .bg-image {
+        /* The image used */
+        background-image: url("./img/Events/french-riviera.jpg");
+
+        /* Add the blur effect */
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .my-container {
+        height: 95%;
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.6);
+        /* Black w/opacity/see-through */
+        color: white;
+
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: auto;
+        width: 80%;
+        padding: 20px;
+        display: block;
+        overflow-x: hidden;
+        text-align: center;
+    }
+
+    .wrapper {
+        display: grid;
+    }
+
+    .input-group {
+        margin: auto;
+        width: 300px;
+    }
+
+    #time {
+        text-align: left;
+        border: 1px solid white;
+        border-radius: 10px;
+    }
+
+    #picture {
+        display: flex;
+        align-items: center;
+    }
+
+    #eventPhoto {
+        position: relative;
+    }
+
+    .hide {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        padding: 0;
+        box-sizing: border-box;
+        object-fit: cover;
+    }
+
+    #eventPhoto:hover {
+        opacity: 0;
+    }
+
+    #eventPhoto:hover+.hide {
+        display: block;
+        opacity: 1;
+    }
+
+
+
+    #hidePhoto {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        margin-right: 20px;
+        /* Add margin to create space between the photos and information */
+        position: relative;
+    }
+
+
+    #information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        align-items: flex-start;
+        padding-left: 20px;
+        flex-grow: 1;
+    }
+
+    #title {
+        text-align: right;
+    }
+
+    .txt1 {
+        text-align: right;
+    }
+
+    #link {
+        text-align: right;
+    }
+
+    *:disabled {
+        background-color: dimgrey;
+        color: rgb(0, 0, 0);
+        opacity: 1;
+    }
+
+    .disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0);
+        padding: 10px;
+        border-radius: 8px;
+    }
+</style>
+
+
+<body onload="loggedInCheck2(), fetchEvents()">
+    <script src="./loggedInCheck.js"></script>
+    <script src="../frontend/loadEvents_Into_EventsPage.js"></script>
+
+
+    <!-- FAILURE ALERT-->
+    <div id="failure-alert" style="display:none; text-align: center; z-index: 2;" class="alert alert-danger"
+        role="alert">
+        <span id="failure-message"></span>
+    </div>
+
+    <div class="bg-image"></div>
+
+
+    <div class="my-container">
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="home.html">Home</a>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn btn-outline-success" type="submit" id="logOut" onclick=logOut()
+                        style="display:none;">Log
+                        Out</button>
+                </li>
+            </ul>
+        </nav>
+
+
+        <br><br>
+
+        <div class="general_information">
+            <h1 class="logo">Annual Must-Visit Events in Monaco</h1>
+        </div>
+
+        <script src="./localstorage.js"></script>
+        <script src="./searchBar.js"></script>
+
+        <div class="input-group" id="searchBar">
+            <input id="input" type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" onkeyup="search()" />
+        </div>
+
+        <br><br>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body {
+
+  background-repeat: no-repeat;
+  background-size: cover;
+   
+}
+
+.background-img {
+	background-image: url("./img/backHome.jpg");
+	filter: blur(8px);
+    -webkit-filter: blur(8px);
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reservation</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/reservation.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+
+</style>
+
+<body onLoad="localStorageGet(), cardCheck(), loggedInCheck2()">
+
+    <!--<div class="bg-image"></div> -->
+    <div class="bg-image"></div>
+
+
+    <script src="./localstorage.js"></script>
+    <script src="./checkFields.js"></script>
+    <script src="./checkboxLimit.js"></script>
+    <script src="./reservationDetails.js"></script>
+    <script src="./makeReservation.js"></script>
+    <script src="./loggedInCheck.js"></script>
+    <script src="./cardCheck.js"></script>
+
+    <div class="container">
+
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="home.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn btn-outline-success" type="submit" id="logOut" onclick=logOut()
+                        style="display:none;">Log
+                        Out</button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header">
+            <h1 id="title"></h1>
+        </div>
+
+        <div class="userOptions">
+            <!--Container gia epilogh atomwn kai typo eisithriwn-->
+
+            <div class="row">
+                <div class="col-5">
+                    <h5>No of Persons:</h5>
+                </div>
+                <div class="col-7">
+                    <select class="form-control" id="numOfPersons" aria-label="Default select example"
+                        onchange="checkFields()">
+                        <option selected>Select here</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-4">
+                    <h5>Ticket Class:</h5>
+                </div>
+                <div class="col-7" style="float:left;">
+                    <input type="radio" id="tA" name="age" value="A" onchange="checkFields()">
+                    <label for="ticketA">A Class</label>
+                    <input type="radio" id="tB" name="age" value="B" onchange="checkFields()">
+                    <label for="ticketB">B Class</label>
+                    <input type="radio" id="tC" name="age" value="C" onchange="checkFields()">
+                    <label for="ticketC">C Class</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="price" id="priceBox">
+            <div class="row">
+                <div class="col">
+                    <h5>Price: </h5>
+                </div>
+                <div class="col">
+                    <h5 id="priceTotal"></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="image">
+            <img id="photo" class="img" src="">
+        </div>
+
+        <div class="seats" id="seatsBox">
+            <div class="classA">Class A</div>
+            <div class="classB">Class B</div>
+            <div class="classC">Class C</div>
+
+            <div class="seatsA" ticketClass="A">
+                <label>
+                    <input type="checkbox" id="A1" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A2" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A3" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A4" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A5" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A6" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A7" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A8" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A9" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A10" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A11" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="A12" class="A" onclick="checkboxLimit('A')">
+                    <span class="seatImage"></span>
+                </label>
+
+
+
+
+            </div>
+            <div class="seatsB" ticketClass="B">
+                <label>
+                    <input type="checkbox" id="B1" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B2" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B3" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B4" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B5" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B6" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B7" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B8" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B9" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B10" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B11" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="B12" class="B" onclick="checkboxLimit('B')">
+                    <span class="seatImage"></span>
+                </label>
+
+            </div>
+            <div class="seatsC" ticketClass="C">
+                <label>
+                    <input type="checkbox" id="C1" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C2" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C3" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C4" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C5" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C6" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C7" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C8" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C9" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C10" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C11" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+                <label>
+                    <input type="checkbox" id="C12" class="C" onclick="checkboxLimit('C')">
+                    <span class="seatImage"></span>
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="seatsConfirmBtn" id="seatsConfirmBtn">
+            <button id="seatsConfirmBtn" type="button" class="btn btn-light"
+                onclick="informationForms()">Confirm</button>
+        </div>
+
+        <div class="tickets" id="personalInfo">
+
+            <div id="person1">
+                <span class="text" id="ticketNo">Ticket 1</span>
+
+                <span class="text" placeholder="NotTaken" id="ticket1"></span>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <div id="person2">
+                <span class="text" id="ticketNo">Ticket 2</span>
+                <span class="text" placeholder="NotTaken" id="ticket2"></span>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <div id="person3">
+                <span class="text" id="ticketNo">Ticket 3</span>
+                <span class="text" placeholder="NotTaken" id="ticket3"></span>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <div id="person4">
+                <span class="text" id="ticketNo">Ticket 4</span>
+                <span class="text" placeholder="NotTaken" id="ticket4"></span>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <button id="reservationBtn" type="button" class="btn btn-light"
+                onclick="reservationDetails()">Confirm</button>
+
+        </div>
+
+        <div class="reservationInfo" id="reservationInfo">
+            <div class="mail">
+                <input type="text" id="inputMail" name="inputMail" placeholder="Your mail..">
+            </div>
+
+            <div class="payCard">
+                <!--<input type="text" id="inputCard" name="inputCard" placeholder="Your 16 digit card number..">  -->
+                <span class="input-group-text" id="cardSpan">Type 16-digit Card Number</span>
+                <input type="text" id="card1" name="" placeholder="">
+                <input type="text" id="card2" name="" placeholder="">
+                <input type="text" id="card3" name="" placeholder="">
+                <input type="text" id="card4" name="" placeholder="">
+
+            </div>
+
+            <div class="rndmCode">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="securityCode"></span>
+                    <input type="text" id="inputRndm" class="form-control" placeholder="Type the security code">
+                </div>
+
+            </div>
+
+            <div class="finalBtn">
+                <button id="makeReservation" type="button" class="btn btn-light" onclick="makeReservation()">Make
+                    Reservation</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

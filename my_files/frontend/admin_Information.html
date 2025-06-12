@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Monaco Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
+</head>
+
+<body onload="loadParagraphs()">
+
+    <script src="admin_Information.js"></script>
+    <script src="admin_Logout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="./admin_Dashboard.html">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div id="successMessage" class="d-none alert alert-success mt-3" role="alert">
+        Text updated successfully!
+    </div>
+
+
+    <div class="container mt-4">
+        <h2>Edit Paragraph 1</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="text">Text:</label>
+                <textarea name="text" id="textP1" class="form-control" rows="10"
+                    style="color:aliceblue; background-color:rgb(56, 56, 56);"></textarea>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" onclick="updateP1()">Update Text</button>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Edit Paragraph 2</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="text">Text:</label>
+                <textarea name="text" id="textP2" class="form-control" rows="10"
+                    style="color:aliceblue; background-color:rgb(56, 56, 56);"></textarea>
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary" onclick="updateP2()">Update Text</button>
+    </div>
+
+</body>
+
+</html>

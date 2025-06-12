@@ -1,0 +1,102 @@
+html *
+{
+  
+
+  
+}
+
+body {
+
+	
+
+}
+
+.monaco_guide {
+	
+	
+	
+}
+
+.monaco_guide h1 {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.location1 {
+	clear: left;
+	display: inline-block;
+	margin-bottom: 50px;
+	
+}
+.location1 img {
+	float: left;
+}
+.location txt1 {
+	float: right;
+    text-align: center;
+}
+
+
+
+.location2 {
+	clear: center;
+    display: inline-block;
+	margin-bottom: 50px;
+}
+.location2 img {
+	float: left;
+}
+.location txt2 {
+	float: right;
+}
+
+
+.location3 {
+	clear: center;
+    display: inline-block;
+	margin-bottom: 50px;
+}
+.location3 img {
+	float: left;
+}
+.location txt3 {
+	float: right;
+}
+
+
+.location4 {
+	clear: center;
+    display: inline-block;
+	margin-bottom: 50px;
+}
+.location4 img {
+	float: left;
+}
+.location txt4 {
+	float: right;
+}
+
+
+.location5 {
+	clear: center;
+    display: inline-block;
+	margin-bottom: 50px;
+}
+.location5 img {
+	float: left;
+}
+.location txt5 {
+	float: right;
+}
+
+.homeBtn {
+	float: center;
+	transition-duration: 0.4s;
+	background-color: white;
+	border: 1px black;
+}
+
+.homeBtn:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}

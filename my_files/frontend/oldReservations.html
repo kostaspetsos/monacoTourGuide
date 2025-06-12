@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .bg-image {
+        /* The image used */
+        background-image: url("./img/accountSettings.jpg");
+
+        /* Add the blur effect */
+        filter: blur(8px);
+        -webkit-filter: blur(2px);
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: repeat;
+        background-size: cover;
+    }
+
+    .my-container {
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/opacity/see-through */
+        color: white;
+
+        border: 3px solid #f1f1f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 80%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .reservation-container {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .reservation-container h4 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .reservation-container p {
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    .reservation-container ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .reservation-container li {
+        margin-bottom: 5px;
+        color: #555;
+    }
+
+    #reservations-container {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+</style>
+
+<body onload="loadInfo()">
+    <script src="../nodejs/account.js"></script>
+    <script src="./loggedInCheck.js"></script>
+
+    <div class="bg-image">
+    </div>
+    <div id="success-alert" style="display:none; text-align: center; position: absolute; top: 0%; width: 100%;"
+        class="alert alert-success" role="alert">
+        <span id="success-message"></span>
+    </div>
+    <div id="failure-alert" style="display:none; text-align: center; position: absolute; top: 0%; width: 100%;"
+        class="alert alert-danger" role="alert">
+        <span id="failure-message"></span>
+    </div>
+    <div class="my-container">
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="home.html">Home</a>
+
+            <div class="navbar-nav mr-auto" id="collapsibleNavbar">
+
+
+                <!-- LOG OUT-->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn btn-outline-success" type="submit" id="logOut" onclick=logOut()
+                            style="display:block;">Log
+                            Out</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <h1 class="logo">Your Previous Reservations</h1>
+
+        <div id="reservations-container"></div>
+
+    </div>
+
+    <!--Script that loads all the reservations that have been made from the logged in -->
+    <script src="userReservations.js"></script>
+</body>
+
+</html>
